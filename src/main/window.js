@@ -9,7 +9,7 @@ export function createWindow() {
   mainWindow = new BrowserWindow({
     width: 600,
     height: 400,
-    // show: false,
+    show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
@@ -19,6 +19,11 @@ export function createWindow() {
   });
 
   // mainWindow.webContents.openDevTools();
+  // mainWindow.setAlwaysOnTop(true, 'screen');
+
+  mainWindow.on('ready-to-show', () => {
+    mainWindow.show();
+  });
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url);

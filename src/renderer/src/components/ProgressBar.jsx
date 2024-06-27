@@ -11,34 +11,28 @@ export default function ProgressBar() {
   return (
     <>
       <div
-        className="bar-container"
+        className="container"
         style={{
-          backgroundColor: barBgChroma
+          backgroundColor: barBgChroma,
+          border: borderIsVisible && '2px solid #555'
         }}
       >
         <div
-          className="container"
+          className="custom-bar"
           style={{
-            border: borderIsVisible && '2px solid #555'
+            backgroundColor: barBgColor,
+            border: borderIsVisible,
+            width: (parseInt(likesCount) * 100) / goal + '%'
           }}
-        >
-          <div
-            style={{
-              backgroundColor: barBgColor,
-              border: borderIsVisible,
-              width: (parseInt(likesCount) * 100) / goal + '%'
-            }}
-            className="custom-bar"
-          ></div>
-          {shimmer && <div className="shimmer"></div>}
-        </div>
+        ></div>
+        {shimmer && <div className="shimmer"></div>}
       </div>
 
       <div className="color-controls">
         <div className="control-unit">
           <span>Цвет прогресс-бара: </span>{' '}
           <input
-            style={{ height: 20, width: 20, padding: 0 }}
+            style={{ height: 20, width: 20, padding: 0, border: 0 }}
             type="color"
             onChange={(e) => setBarBgColor(e.target.value)}
             value={barBgColor}
@@ -48,7 +42,12 @@ export default function ProgressBar() {
         <div className="control-unit">
           <span>Цвет фона: </span>{' '}
           <input
-            style={{ height: 20, width: 20, padding: 0 }}
+            style={{
+              height: 20,
+              width: 20,
+              padding: 0,
+              border: 0
+            }}
             type="color"
             onChange={(e) => setBarBgChroma(e.target.value)}
             value={barBgChroma}
