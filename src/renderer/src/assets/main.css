@@ -1,0 +1,131 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.App {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.button-group {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.input-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.goal-counter-text {
+  margin-bottom: 12px;
+}
+
+.goal-input {
+  margin-right: 12px;
+  width: 70px;
+}
+
+.bar-container {
+  max-width: 350px;
+  /* background-color: rgb(4, 255, 0); */
+}
+
+.container {
+  position: relative;
+  margin-top: 40px;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.custom-bar {
+  height: 50px;
+  width: 0%;
+  transition: all 0.7s ease;
+}
+
+.finalText {
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+}
+
+.color-controls {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50px;
+
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  animation: shimmer 0.8s linear;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
