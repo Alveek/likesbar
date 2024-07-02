@@ -19,7 +19,7 @@ export function createWindow() {
   });
 
   // mainWindow.webContents.openDevTools();
-  // mainWindow.setAlwaysOnTop(true, 'screen');
+  mainWindow.setAlwaysOnTop(true, 'screen');
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show();

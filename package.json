@@ -20,6 +20,7 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
+    "styled-components": "^6.1.11",
     "zustand": "^4.5.4"
   },
   "devDependencies": {

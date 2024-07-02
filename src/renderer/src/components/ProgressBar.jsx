@@ -1,5 +1,25 @@
+import styled from 'styled-components';
 import { useState } from 'react';
 import { useStore } from '../store';
+
+const StyledProgressBarContainer = styled.div`
+  position: relative;
+  margin-top: 40px;
+  height: 50px;
+  width: 350px;
+  overflow: hidden;
+  color: ${(props) => props.$inputColor || '#BF4F74'};
+  background: ${(props) => props.$barBgChroma};
+  border: ${(props) => props.$borderIsVisible && '2px solid #555'};
+`;
+
+const StyledProgressBar = styled.div`
+  height: 50px;
+  width: 0%;
+  background: ${(props) => props.$barBgColor};
+  width: ${(props) => (parseInt(props.$likesCount) * 100) / props.$goal + '%'};
+  transition: all 0.7s ease;
+`;
 
 export default function ProgressBar() {
   const { goal, likesCount, shimmer } = useStore();
@@ -10,23 +30,10 @@ export default function ProgressBar() {
 
   return (
     <>
-      <div
-        className="container"
-        style={{
-          backgroundColor: barBgChroma,
-          border: borderIsVisible && '2px solid #555'
-        }}
-      >
-        <div
-          className="custom-bar"
-          style={{
-            backgroundColor: barBgColor,
-            border: borderIsVisible,
-            width: (parseInt(likesCount) * 100) / goal + '%'
-          }}
-        ></div>
+      <StyledProgressBarContainer $barBgChroma={barBgChroma} $borderIsVisible={borderIsVisible}>
+        <StyledProgressBar $barBgColor={barBgColor} $likesCount={likesCount} $goal={goal} />
         {shimmer && <div className="shimmer"></div>}
-      </div>
+      </StyledProgressBarContainer>
 
       <div className="color-controls">
         <div className="control-unit">
